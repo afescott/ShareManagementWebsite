@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-header">
+  <div>           
+  <BR>
+    <h2 [hidden]="!basicInfoCalculated">What indicators are there for this companies success?</h2> 
+  <table mat-table >
+   <tr>
+  <th>Company name</th>
+  <th>On buy share price</th>
+  <th>Most recent share price</th>
+  <th>P/E</th>
+  <th>Net debt</th>
+  <th>Market cap</th>
+  <th>On buy share price</th>
+  <th>Most recent share price</th>
+  <th>1 month later</th>
+  <th>1.5 months later</th>
+   </tr>
+   <tbody>
+  <tr  *ngFor='let share of shares' >
+  <td> {{share.sharePrice}}  </td>
+  <td> {{share.sharePrice}} </td>
+  <td> <button type="button" (click)="showCompanyInfo()" >View company</button>  </td>
+  <td> </td>
+  <td> Row 3  </td>
+  <td> Row 1 </td>
+  <td> Row 2 </td>
+  <td> Row 3  </td>
+  <td> Row 3  </td>
+  </tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>

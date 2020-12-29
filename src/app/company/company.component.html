@@ -1,0 +1,41 @@
+
+
+<div class="card">
+  <div class="card-header">
+
+  
+
+<div>           
+<h2>Company name?  <input type="text" (change)="onChangeString()"   [(ngModel)]='companyName'  >  </h2>
+<h2>Checked for bankruptcy warning?</h2>
+ <h2>P/E?   <input type="text" (change)="onChangeFloat()"  [(ngModel)]='priceEarningsRatio' ></h2>
+ <h2>Turnover</h2> This year <input type="text" (change)="onChangeFloat()"  [(ngModel)]='turnoverThisYear'>
+ Last year <input type="text" (change)="onChangeFloat()" [(ngModel)]='turnoverLastYear'>
+ <h2>Net debt<input type="text" (change)="onChangeFloat()" [(ngModel)]='netDebt'> </h2> 
+ <h2>Market cap <input type="text" (change)="onChangeFloat()" [(ngModel)]='marketCap'> </h2>
+ <h2 [hidden]="!basicInfoCalculated">What indicators are there for this companies success?</h2> <input type="text"  (change)="onChangeString()" [(ngModel)]='marketCap' [hidden]="!basicInfoCalculated">
+ 
+<BR>
+  <button type="button" [hidden]="basicInfoCalculated"  (click)="btnRegisterCompany()">Register company</button>
+
+
+  
+
+<table mat-table>
+ <tr>
+<th >Col 1</th>
+<th>Col 2</th>
+<th>Col 3</th>
+ </tr>
+<tr>
+<td> Row 1 </td>
+<td> Row 2 </td>
+<td> Row 3  </td>
+</tr>
+
+</table>
+
+  </div>
+
+  </div>
+  </div>
