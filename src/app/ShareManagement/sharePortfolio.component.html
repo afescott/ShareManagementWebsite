@@ -2,34 +2,65 @@
     <div class="card-header">
   <div>           
   <BR>
-    <h2 [hidden]="!basicInfoCalculated">What indicators are there for this companies success?</h2> 
+    <button type="button"  (click)="configureShares()"> Register share</button>
+    <h1>Shares</h1>
   <table mat-table >
    <tr>
   <th>Company name</th>
+  <th>Purchase date</th>
   <th>On buy share price</th>
-  <th>Most recent share price</th>
+  <th>Dividend yield</th>
   <th>P/E</th>
   <th>Net debt</th>
   <th>Market cap</th>
-  <th>On buy share price</th>
-  <th>Most recent share price</th>
-  <th>1 month later</th>
-  <th>1.5 months later</th>
+  <th>netChangeCash</th>
+  <th>Cash flow</th>
+  <th>Share justification</th>
+  <th>View competitors</th>
    </tr>
    <tbody>
   <tr  *ngFor='let share of shares' >
-  <td> {{share.sharePrice}}  </td>
+  <td> {{share.companyName}}  </td>
+  <td> {{share.shareEntryDate}}  </td>
   <td> {{share.sharePrice}} </td>
-  <td> <button type="button" (click)="showCompanyInfo()" >View company</button>  </td>
-  <td> </td>
-  <td> Row 3  </td>
-  <td> Row 1 </td>
-  <td> Row 2 </td>
-  <td> Row 3  </td>
-  <td> Row 3  </td>
+   <td> {{share.dividendYield}} </td>
+   <td> {{share.priceEarningsRatio}} </td>
+  <td> {{share.netDebt}} </td>
+  <td> {{share.marketCap}} </td>
+  <td> {{share.cashFlow}} </td>
+  <td> {{share.netChangeCash}} </td>
+  <td> <button type="button"   routerLinkActive='active'   [routerLink]="['/shareStrategy', share.shareId, 'share']" >Share justification</button> </td>
+  <td> <button type="button"   routerLinkActive='active' [routerLink]="['/competitors', share.shareId]" >Competitors</button>  </td>
   </tr>
 </tbody>
 </table>
 </div>
+<h1>Funds</h1>
+<table mat-table >
+  <tr>
+ <th>Fund name</th>
+ <th>Net assets</th>
+ <th>Dividend yield</th>
+ <th>IsEtf?</th>
+ <th>YetToIpo?</th>
+ <th>Fund justification</th>
+  </tr>
+  <tbody>
+ <tr  *ngFor='let fund of funds' >
+ <td> {{fund.fundName}}  </td>
+ <td> {{fund.netAssets}}  </td>
+ <td> {{fund.dividendYield}} </td>
+  <td> {{fund.yetToIpo}} </td>
+  <td> {{fund.isEtf}} </td>
+  <td> <button type="button"   routerLinkActive='active' [routerLink]="['/shareStrategy', fund.fundId, 'fund']" >Fund justification</button> </td>
+ </tr>
+</tbody>
+</table>
 </div>
+
+
+
+
+<h2> Remember, geographical situation of nation related to share, </h2>
+
 </div>

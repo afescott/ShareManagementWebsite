@@ -1,0 +1,111 @@
+
+
+     <br>
+     <br>
+     <br>
+
+    
+       <H1>Competitors</H1>
+     
+      
+         <table mat-table >
+          <tr>
+           
+           <th>Competitor ID</th>
+         <th>Company name</th>
+         <th>Purchase date</th>
+         <th>On buy share price</th>
+         <th>Dividend yield</th>
+         <th>P/E</th>
+         <th>Net debt</th>
+         <th>Market cap</th>
+         <th>netChangeCash</th>
+         <th>Cash flow</th>
+          </tr>
+      
+          <tbody>
+         <tr  *ngFor='let share of confirmedCompetitors' >
+       
+          <td> {{share.shareId}}  </td>
+         <td> {{share.companyName}}  </td>
+         <td> {{share.shareEntryDate}}  </td>
+         <td> {{share.sharePrice}} </td>
+          <td> {{share.dividendYield}} </td>
+          <td> {{share.priceEarningsRatio}} </td>
+         <td> {{share.netDebt}} </td>
+         <td> {{share.marketCap}} </td>
+         <td> {{share.cashFlow}} </td>
+         <td> {{share.netChangeCash}} </td>
+        
+         </tr>
+       </tbody>
+       </table>
+      
+       
+      
+      
+
+<div class="card">
+  <div class="card-header">
+
+    <button data-toggle="collapse" data-target="#demo" (click)="Jim()"> Add a competitor</button>
+<button class="navbar-toggler" type="button" (click)="navbarCollapsed = !navbarCollapsed" [attr.aria-expanded]="!navbarCollapsed" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+
+
+<article>
+<div class="collapse navbar-collapse" [ngbCollapse]="navbarCollapsed" id="navbarSupportedContent" >
+
+   <table mat-table >
+    <tr>
+      <th>Add competitor</th>
+     <th>Competitor ID</th>
+   <th>Company name</th>
+   <th>Purchase date</th>
+   <th>On buy share price</th>
+   <th>Dividend yield</th>
+   <th>P/E</th>
+   <th>Net debt</th>
+   <th>Market cap</th>
+   <th>netChangeCash</th>
+   <th>Cash flow</th>
+    </tr>
+
+    <tbody>
+   <tr  *ngFor='let share of shares' >
+    <td> <input type="checkbox"  [(ngModel)]="share.shareCheckbox" id="vehicle1" name="vehicle1" value="Bike">  </td>
+    <td> {{share.shareId}}  </td>
+   <td> {{share.companyName}}  </td>
+   <td> {{share.shareEntryDate}}  </td>
+   <td> {{share.sharePrice}} </td>
+    <td> {{share.dividendYield}} </td>
+    <td> {{share.priceEarningsRatio}} </td>
+   <td> {{share.netDebt}} </td>
+   <td> {{share.marketCap}} </td>
+   <td> {{share.cashFlow}} </td>
+   <td> {{share.netChangeCash}} </td>
+  
+   </tr>
+ </tbody>
+ </table>
+
+ 
+
+
+</div>
+</article>
+
+<button type="button"  (click)="submitShares()"> Register competitors</button>
+
+
+  
+
+
+
+
+
+
+
+  </div>
+  </div>

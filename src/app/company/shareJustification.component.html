@@ -1,0 +1,56 @@
+
+
+
+<!-- <select style="width:100px;height:25px;" ng-model="frank"
+     ng-options="shareStrategyImport.planForIncrease  for  attribute in test"> -->
+     <br>
+     <br>
+     <br>
+
+
+    <ul class="code-editor-options-menu" *ngFor="let share of shareStrategyImport">
+  <li> {{share.planForIncrease}} </li>
+  <li> {{share.timingJustification}} </li>
+  <li> {{share.planFor20Decrease}} </li>
+  <li> {{share.planFor40Decrease}} </li>
+   
+</ul>
+
+   <button class="navbar-toggler" type="button" (click)="navbarCollapsed = !navbarCollapsed" [attr.aria-expanded]="!navbarCollapsed" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+<article>
+<div class="collapse navbar-collapse" [ngbCollapse]="navbarCollapsed" id="navbarSupportedContent" >
+  
+    <input  size=100px   style="height:50px;font-size: large;" matInput placeholder="Why purchase at this time? How are you buying below intrinsic value" [(ngModel)]="whyAtThisTimeJustification" >
+  
+
+        <input type="text" size=100px  style="height:50px;font-size: large;" [(ngModel)]="whySharePriceGoingToIncreaseJustification"  placeholder="Why is the share price likely to increase / What indicators are there for this companies success? " height=500px   >
+       <h2>What is your plan incase the share price dips?</h2>
+       <h1> 0-20%?<input style="font-size: large;" type="text" size=80px  style="height:75px" [(ngModel)]='planForMinorSharePriceDropJustification'>  </h1>
+       <h1>20-40%<input style="font-size: large;" type="text" size=80px  style="height:75px" [(ngModel)]='planForMajorSharePriceDropJustification'>  </h1>
+       <button  (click)="submitShareStrategy()"  >Edit info</button>
+</div>
+</article>
+
+<div class="card">
+  <div class="card-header">
+
+
+
+
+
+  <button data-toggle="collapse" data-target="#demo" (click)="Jim()"  >Edit info</button>
+
+    <!-- <h2 style="height:50px;font-size: large;" height=500px [(ngModel)]='infoResponse'></h2>
+    <h2 size=100px  style="height:75px" [(ngModel)]='infoResponse'></h2> -->
+
+
+<BR>
+
+
+
+
+
+  </div>
+  </div>

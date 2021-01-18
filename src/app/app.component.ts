@@ -10,7 +10,8 @@ import { Component } from '@angular/core';
 
         <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/loadShares']"><h1>Load current shares</h1></a></li>
         <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/registerShare']"><h1>Register a share </h1></a></li>
-        <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/registerCompany']"><h1>Register a company </h1></a></li>
+        <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/competitors']"><h1>Competitors </h1></a></li>
+        <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/shareStrategy']"><h1>Register a company </h1></a></li>
           <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/sellShare']"><h1>Selling a share</h1></a></li>
           <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/yetToDecideShare']"><h1>Yet to sell</h1></a></li>
         </ul>

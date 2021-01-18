@@ -1,16 +1,38 @@
 <div class="card">
     <div class="card-header">
   
-    
-  
   <div>    
 
-    <h2>Company name? </h2> <input type="text" style="font-size: large;" size="50px"> this should be a scroll wheel
-    <h2>Share price </h2> <input type="text"  style="font-size: large;" [(ngModel)]='sharePrice' >
-    <h2>Dividend price per share</h2>  <input style="font-size: large;" type="text" [(ngModel)]='dividendPrice'>
-    <h2>Why is the share price likely to increase?</h2> <input type="text" size=100px  style="height:50px;font-size: large;"  height=500px >
-    <h2>What is your plan incase the share price dips?</h2> <input style="font-size: large;" type="text" size=100px  style="height:75px">
-<button type="button" (click)="btnRegisterShare()">Register company</button>
+    <article>
+      <input type="text">This is the left box./>
+      <section>This is the mid box.</section>
+      <section>This is the right box.</section>
+  </article>
+<h2> Study the business not the stock</h2>
+<article>
+
+  <h2>Fund? </h2>  <input type="checkbox"  (click)="btnIsFund()" >
+  <h2>ETF? </h2> <input type="checkbox"   [(ngModel)]='etfFlag' >
+
+    <h2>Company name? </h2> <input type="text" style="font-size: large;" size="50px" [(ngModel)]='companyName' > this should be a scroll wheel
+    <h2>Last close price (Pence)</h2> <input type="text"  style="font-size: large;" [(ngModel)]='sharePrice' > 
+    <h2>No dividend yield </h2>  <input type="checkbox"  [(ngModel)]="dividendFlag">
+    <h2 *ngIf="!dividendFlag" >Dividend Yield (%)</h2>  <input style="font-size: large;"  *ngIf="!dividendFlag" type="text" [(ngModel)]='dividendYield'>
+    <h2 *ngIf="assetsFlag" >Assets total (MILL)</h2>  <input style="font-size: large;"  *ngIf="assetsFlag" type="text" [(ngModel)]='assetsTotal'>
+    <h2 *ngIf="!operatingCashFlowFlag" >Operating cash flow (MILL)</h2>  <input *ngIf="!operatingCashFlowFlag" style="font-size: large;" type="text" [(ngModel)]='cashFlow'>
+    <h2>No net debt </h2>  <input type="checkbox"  [(ngModel)]="netDebtFlag"   >
+    <h2 *ngIf="!netDebtFlag">Net debt (MILL)</h2>  <input style="font-size: large;" type="text" *ngIf="!netDebtFlag" [(ngModel)]='netDebt'>
+    <h2>No market cap </h2>  <input type="checkbox"  [(ngModel)]="marketCapFlag" value="Bike">
+    <h2  *ngIf="!marketCapFlag">Market cap? (MILL)</h2>  <input style="font-size: large;" type="text" [(ngModel)]='marketCap' *ngIf="!marketCapFlag">
+    <h2>P/E? (0-10)</h2>  <input style="font-size: large;" type="text" [(ngModel)]='priceEarningsRatio'>
+
+    <h2>Yet to IPO </h2>  <input type="checkbox"  [(ngModel)]="yetToIpoFlag">
+  
+    <h2>P/S below 1 = excellent, between 1 and 2 good. 1-2 is normal. Check share volume is over 10-20 thousand.</h2> 
+    <button type="button"  (click)="btnRegisterShare()"> Register share</button>
+
+  </article>
+
 </div>
 
 </div>
