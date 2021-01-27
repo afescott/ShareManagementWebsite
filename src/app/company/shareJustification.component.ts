@@ -17,7 +17,7 @@ export class ShareJustification implements OnInit
 
       public basicInfoCalculated = false;
     
-    public isFund : string;
+    public isFund : boolean = false;
 
     
      
@@ -42,25 +42,55 @@ export class ShareJustification implements OnInit
       }
       
   ngOnInit(): void {
-    this.isFund =  this.route.snapshot.paramMap.get('isFund');
-
+    var investmentType =  this.route.snapshot.paramMap.get('isFund');
     let id = + this.route.snapshot.paramMap.get('id');
- 
     this.shareId = id;
-    
-     this.client.retrieveShareStrategies(id).subscribe(x => {
-     
-   this.client.retrieveShares
- 
-         this.whyAtThisTimeJustification = x.timingJustification;
-        
-        this.whySharePriceGoingToIncreaseJustification = x.planForIncrease;
-        
-        this.planForMinorSharePriceDropJustification = x.planFor20Decrease;
-        
-        this.planForMajorSharePriceDropJustification = x.planFor40Decrease;
+    if (investmentType = "fund")
+    {
+      this.isFund = true;
 
-       } , error => this.errorFlag = true )
+      this.client.retrieveFundStrategy(id).subscribe(x => {
+     
+        // this.client.retrieveShares
+      
+              this.whyAtThisTimeJustification = x.timingJustification;
+             
+             this.whySharePriceGoingToIncreaseJustification = x.planForIncrease;
+             
+             this.planForMinorSharePriceDropJustification = x.planFor20Decrease;
+             
+             this.planForMajorSharePriceDropJustification = x.planFor40Decrease;
+     
+            } , error => 
+            this.errorFlag = true )
+
+
+    } else {
+
+      this.client.retrieveShareStrategies(id).subscribe(x => {
+     
+        // this.client.retrieveShares
+      
+              this.whyAtThisTimeJustification = x.timingJustification;
+             
+             this.whySharePriceGoingToIncreaseJustification = x.planForIncrease;
+             
+             this.planForMinorSharePriceDropJustification = x.planFor20Decrease;
+             
+             this.planForMajorSharePriceDropJustification = x.planFor40Decrease;
+     
+            } , error => 
+            this.errorFlag = true )
+
+            
+
+    }
+
+    
+ 
+   
+    
+
 
 //  var asf =  this.client.retrieveShareStrategies(id).subscribe({
 //      next: shareInfo => {
@@ -99,16 +129,16 @@ var response = false;
 
    
 
-   var share : IShareStrategy = {ShareFundId : this.shareId, TimingJustification : this.whyAtThisTimeJustification,PlanFor40Decrease : this.planForMajorSharePriceDropJustification, PlanFor20Decrease : this.planForMinorSharePriceDropJustification, PlanForIncrease : this.whySharePriceGoingToIncreaseJustification};
+   var share : IShareStrategy = { IsFund : this.isFund ,   ShareId : this.shareId, TimingJustification : this.whyAtThisTimeJustification,PlanFor40Decrease : this.planForMajorSharePriceDropJustification, PlanFor20Decrease : this.planForMinorSharePriceDropJustification, PlanForIncrease : this.whySharePriceGoingToIncreaseJustification};
    
 
-   if (this.errorFlag)
+   if (!this.errorFlag)
    {
- response = this.client.registerShareStrategy(share, false)
+ response = this.client.registerShareStrategy(share, true)
    } else
    {
-
-     response = this.client.registerShareStrategy(share, true)
+     response = this.client.registerShareStrategy(share, false)
+     this.errorFlag = false;
    }
 
 

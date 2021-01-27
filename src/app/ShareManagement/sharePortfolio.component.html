@@ -19,8 +19,8 @@
   <th>View competitors</th>
    </tr>
    <tbody>
-  <tr  *ngFor='let share of shares' >
-  <td> {{share.companyName}}  </td>
+  <tr  *ngFor='let share of shares'  >
+  <td>  <button type="button"  [routerLink]="['/shareStrategy', share.shareId, 'share']" >  {{share.companyName}}</button> </td>
   <td> {{share.shareEntryDate}}  </td>
   <td> {{share.sharePrice}} </td>
    <td> {{share.dividendYield}} </td>
@@ -47,7 +47,7 @@
   </tr>
   <tbody>
  <tr  *ngFor='let fund of funds' >
- <td> {{fund.fundName}}  </td>
+  <td>  <button type="button"  [routerLink]="['/fundInformation', fund.fundId]" >  {{fund.fundName}} </button> </td>
  <td> {{fund.netAssets}}  </td>
  <td> {{fund.dividendYield}} </td>
   <td> {{fund.yetToIpo}} </td>

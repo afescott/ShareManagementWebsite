@@ -116,6 +116,18 @@ return true;;
       );
   }
     
+
+  retrieveFundStrategy (fundId : number) : Observable<any>
+  {
+    return this.http.get<any>('http://localhost:1000/api/fund/' + fundId).pipe(
+      tap(data => console.log('ALL: ' + JSON.stringify(data))),
+      catchError(this.handleError),
+      
+      
+      );
+  }
+
+
     
     // return this.http.get("192.168.1.65:7000/api/share/getShares").pipe(
     //    map((data:any[]) => { console.log(data);

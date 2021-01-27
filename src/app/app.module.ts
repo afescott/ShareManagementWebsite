@@ -13,6 +13,7 @@ import {SharePurchase} from './stockPurchase/stockPurchase.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { Competitors } from './Competitor/competitors.component'
 import { DatePipe } from '@angular/common';
+import { FundInformation } from './FundInformation/fundInformation.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { DatePipe } from '@angular/common';
       { path: 'loadShares', component: SharePortfolio },
       { path: 'competitors/:id', component: Competitors },
       { path: 'shareStrategy/:id/:isFund', component: ShareJustification },
+      { path: 'fundInformation/:id', component: FundInformation },
       { path: 'registerShare', component: SharePurchase },
       { path: 'sellShare', component: WelcomeComponent },
       { path: 'yetToDecideShare', component: WelcomeComponent }
